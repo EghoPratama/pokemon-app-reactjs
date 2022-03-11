@@ -20,9 +20,9 @@ export class MyPokemon extends Component {
   }
 
   showRemovePokemon = (value) => {
-    this.setState({ 
-      modal_remove : true,
-      index_remove: value, 
+    this.setState({
+      modal_remove: true,
+      index_remove: value,
     });
   }
 
@@ -74,6 +74,15 @@ export class MyPokemon extends Component {
               </Card.Body>
             </Card>
           ))}
+
+          {this.state.poke_my.length === 0
+            ? <div className='mt-8'>
+                <Card style={{ width: '20rem' }} className='text-center center mt-3 mb-3'>
+                  <Card.Img variant="top" src='https://i.pinimg.com/originals/ae/8a/c2/ae8ac2fa217d23aadcc913989fcc34a2.png' />
+                </Card>
+              </div>
+            : ''
+          }
         </Container>
       </div>
     )
