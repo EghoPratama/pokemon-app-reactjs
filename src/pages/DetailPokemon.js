@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Card, Badge, Button, ProgressBar, Modal, Form } from 'react-bootstrap';
+import { Container, Card, Badge, Button, ProgressBar, Modal, Form, Toast } from 'react-bootstrap';
 import { API_URL } from '../utils/constants';
 import axios from 'axios';
 
@@ -123,12 +123,12 @@ export default class DetailPokemon extends Component {
                                     </Button>
                                 ))}
 
-                                <Modal show={this.state.modal_show} onHide={this.closePokeAbility}>
-                                    <Modal.Header closeButton>
-                                        <Modal.Title>Ability Info</Modal.Title>
-                                    </Modal.Header>
-                                    <Modal.Body>{this.state.poke_ability}</Modal.Body>
-                                </Modal>
+                                <Toast show={this.state.modal_show} onClose={this.closePokeAbility}>
+                                    <Toast.Header>
+                                        <strong className="me-auto">Ability Info</strong>
+                                    </Toast.Header>
+                                    <Toast.Body>{this.state.poke_ability}</Toast.Body>
+                                </Toast>
                             </Card.Text>
                         </Card.Body>
                     </Card>
